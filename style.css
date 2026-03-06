@@ -1,0 +1,109 @@
+/* GRUP SEÇİCİ: h1, h2 ve p etiketleri için ortak ayarlar  */
+h1, h2, p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+body {
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* NAVİGASYON: Yatay Menü  */
+nav {
+    background-color: #ebf0f7;
+    padding: 15px;
+    text-align: right;
+    border-bottom: 1px solid #ddd;
+}
+
+/* HİYERARŞİK SEÇİCİ 1  */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* HİYERARŞİK SEÇİCİ 2: Menüyü yatay yapmak için display kullanımı  */
+nav ul li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    padding: 5px 10px;
+    transition: 0.3s; /* Hover efekti için */
+}
+
+/* HOVER EFEKTİ  */
+nav ul li a:hover {
+    color: #fff;
+    background-color: #8fa6d8;
+    border-radius: 4px;
+}
+
+/* HEADER  */
+header {
+    padding: 20px 30px;
+}
+
+header h1 { margin: 0; font-size: 28px; }
+header p { color: #666; margin-top: 5px; }
+
+/* ANA İÇERİK: İki Sütunlu Yapı  */
+main {
+    padding: 0 30px 30px 30px;
+}
+
+.flex-container {
+    display: flex; /* Sütunları yan yana getirmek için */
+    gap: 20px;
+}
+
+.left-column, .right-column {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    vertical-align: top;
+}
+
+.left-column { width: 65%; background-color: #fff4d1; } /* İçerik Alanı */
+.right-column { width: 35%; background-color: #e1f0f7; } /* Yan Menü Alanı */
+
+.box-title {
+    padding: 10px 15px;
+    margin: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 18px;
+}
+
+.box-content {
+    padding: 15px;
+}
+
+/* METİN DÜZENLEME: En az 3 özellik (font-size, line-height, text-align)  */
+.box-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* FOOTER  */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+    font-size: 13px;
+}
