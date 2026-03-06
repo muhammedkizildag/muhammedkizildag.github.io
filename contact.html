@@ -1,46 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>İletişim - Muhammed Kızıldağ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <h1>İletişim</h1>
-        <p>Benimle iletişime geçebileceğiniz bilgiler</p>
-    </header>
-
-    <nav>
-        <ul>
+    <div class="container">
+        <nav>
             <ul>
                 <li><a href="index.html">Anasayfa</a></li>
                 <li><a href="about.html">Hakkımda</a></li>
-                <li><a href="interests.html">İlgi alanlarım</a></li>
-                <li><a href="contact.html">İletişim</a></li>
+                <li><a href="interests.html">İlgi Alanlarım</a></li>
+                <li><a href="contact.html" class="active">İletişim</a></li>
             </ul>
-        </ul>
-    </nav>
+        </nav>
 
-    <main>
-        <h2>İletişim Bilgilerim</h2>
-        <ul>
-            <li>E-Posta: <a href="mailto:mhmmd0536@gmail.com">mhmmd0536@gmail.com</a></li>
-            <li>Telefon: <a href="tel:+905466905170">+90 0546 690 51 70</a></li>
-            <li>Github: <a href="https://github.com/muhammedkizildag">Github Profilim</a></li>
-            <li>LinkedIn: <a href="https://tr.linkedin.com/in/muhammedkizildag">LinkedIn Profilim</a></li>
-        </ul>
+        <header>
+            <h1>İletişim</h1>
+            <p>Benimle iletişime geçebileceğiniz bilgiler.</p>
+        </header>
 
-        <h2>Sık sorulan sorular</h2>
-        <h3>Projelerde işbirliğine açık mısınız?</h3>
-        <p>Evet, iletişim bilgilerim ile bana ulaşabilirsiniz.</p>
-    </main>
-    <footer>
-        <span>&copy; 2026 Web Proglama dersi</span>
-    </footer>       
+        <main class="flex-container">
+            <section class="left-column">
+                <h2 class="box-title">İletişim Bilgilerim</h2>
+                <div class="box-content">
+                    <p><strong>E-Posta:</strong> <a href="mailto:mhmmd0536@gmail.com">mhmmd0536@gmail.com</a> </p>
+                    <p><strong>Github:</strong> <a href="https://github.com/muhammedkizildag">Profilim</a> </p>
+                    <p><strong>LinkedIn:</strong> <a href="https://tr.linkedin.com/in/muhammedkizildag">Profilim</a> </p>
+                </div>
+            </section>
 
+            <aside class="right-column">
+                <h2 class="box-title">Sıkça Sorulan Sorular</h2>
+                <div class="box-content">
+                    <p><strong>İşbirliğine açık mısınız?</strong></p>
+                    <p>Evet, projeleriniz için bana yukarıdaki kanallardan ulaşabilirsiniz.</p>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <span>&copy; 2026 Web Programlama Dersi </span>
+        </footer>
+    </div>
 </body>
-
 </html>
