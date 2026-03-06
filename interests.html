@@ -1,50 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>İlgi Alanlarım - Muhammed Kızıldağ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <h1>İlgi alanlarım</h1>
-        <p>Teknoloji ve kişisel ilgi alanlarım</p>
-    </header>
-    <nav>
-        <ul>
+    <div class="container">
+        <nav>
             <ul>
                 <li><a href="index.html">Anasayfa</a></li>
                 <li><a href="about.html">Hakkımda</a></li>
-                <li><a href="interests.html">İlgi alanlarım</a></li>
+                <li><a href="interests.html" class="active">İlgi Alanlarım</a></li>
                 <li><a href="contact.html">İletişim</a></li>
             </ul>
-        </ul>
-    </nav>
-    <main>
-        <h2>Teknoloji alanında ilgi alanlarım</h2>
-        <ul>
-            <li>Web Geliştirme</li>
-            <li>Yapay zeka geliştirme</li>
-            <li>Mobil uygulama geliştirme</li>
-        </ul>
+        </nav>
 
-        <h2>Günlük Çalışma Rutinim</h2>
-        <ol>
-            <li>Günü planlama</li>
-            <li>Ders materyallerini gözden geçirme</li>
-            <li>Yeni teknolojiler keşfetmek</li>
-            <li>Proje geliştirmek</li>
-        </ol>
+        <header>
+            <h1>İlgi Alanlarım</h1>
+            <p>Teknoloji ve kişisel ilgi alanlarım.</p>
+        </header>
 
-    </main>
+        <main class="flex-container">
+            <section class="left-column">
+                <h2 class="box-title">Teknoloji İlgi Alanlarım</h2>
+                <div class="box-content">
+                    <p>Web Geliştirme, Yapay Zeka ve Mobil Uygulama geliştirme konularına odaklanıyorum.</p>
+                    <p>Yeni teknolojileri keşfetmek ve bu teknolojilerle projeler üretmek benim için bir tutkudur.</p>
+                </div>
+            </section>
 
-    <footer>
-        <span>&copy; 2026 Web Proglama dersi</span>
-    </footer>
+            <aside class="right-column">
+                <h2 class="box-title">Günlük Çalışma Rutinim</h2>
+                <div class="box-content">
+                    <p>1. Günü planlama </p>
+                    <p>2. Materyalleri gözden geçirme </p>
+                    <p>3. Proje geliştirme </p>
+                </div>
+            </aside>
+        </main>
 
-
+        <footer>
+            <span>&copy; 2026 Web Programlama Dersi </span>
+        </footer>
+    </div>
 </body>
-
 </html>
