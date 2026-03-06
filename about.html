@@ -1,53 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hakkımda - Muhammed Kızıldağ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <h1>Hakkımda</h1>
-        <p>Kendimi tanıttığım sayfa</p>
-    </header>
-    <nav>
-        <ul>
+    <div class="container">
+        <nav>
             <ul>
                 <li><a href="index.html">Anasayfa</a></li>
-                <li><a href="about.html">Hakkımda</a></li>
-                <li><a href="interests.html">İlgi alanlarım</a></li>
+                <li><a href="about.html" class="active">Hakkımda</a></li>
+                <li><a href="interests.html">İlgi Alanlarım</a></li>
                 <li><a href="contact.html">İletişim</a></li>
             </ul>
-        </ul>
-    </nav>
+        </nav>
 
-    <main>
-        <h2>Ben Kimim</h2>
-        <p>Merhaba, Ben Bilgisayar Mühendisliği öğrencisiyim. Web teknolojileri ile ilgileniyorum.</p>
+        <header>
+            <h1>Hakkımda</h1>
+            <p>Kendimi tanıttığım sayfa.</p>
+        </header>
 
-        <h2>Eğitim Bilgilerim</h2>
-        <ul>
-            <li>Marmara Üniversitesi</li>
-            <li>Bilgisayar Mühendisliği</li>
-            <li>Web Programlama dersi</li>
-        </ul>
+        <main class="flex-container">
+            <section class="left-column">
+                <h2 class="box-title">Ben Kimim</h2>
+                <div class="box-content">
+                    <p>Merhaba, Ben Bilgisayar Mühendisliği öğrencisiyim. Web teknolojileri ile ilgileniyorum.</p>
+                    <p>Modern web teknolojilerini öğrenmek, responsive ve dinamik tasarımlar yapmak temel hedeflerim arasındadır.</p>
+                </div>
+            </section>
 
-        <h2>Hedeflerim</h2>
+            <aside class="right-column">
+                <h2 class="box-title">Eğitim Bilgilerim</h2>
+                <div class="box-content">
+                    <p><strong>Üniversite:</strong> Marmara Üniversitesi</p>
+                    <p><strong>Bölüm:</strong> Bilgisayar Mühendisliği</p>
+                    <p><strong>Ders:</strong> Web Programlama</p>
+                </div>
+            </aside>
+        </main>
 
-        <ul>
-            <li>Modern Web Teknolojilerini öğrenmek</li>
-            <li>Responsive tasarım yapmak</li>
-            <li>Dinamik Web sayfaları yapmak</li>
-        </ul>
-
-    </main>
-
-    <footer>
-        <span>&copy; 2026 Web Proglama dersi</span>
-    </footer>
-
+        <footer>
+            <span>&copy; 2026 Web Programlama Dersi</span>
+        </footer>
+    </div>
 </body>
-
 </html>
