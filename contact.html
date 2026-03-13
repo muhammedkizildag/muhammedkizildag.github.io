@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim - Muhammed Kızıldağ</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,7 +19,7 @@
 
         <header>
             <h1>İletişim</h1>
-            <p>Benimle iletişime geçebileceğiniz bilgiler.</p>
+            <p>Benimle iletişime geçebileceğiniz bilgiler ve iletişim formu.</p>
         </header>
 
         <main class="flex-container">
@@ -35,10 +36,59 @@
                 <h2 class="box-title">Sıkça Sorulan Sorular</h2>
                 <div class="box-content">
                     <p><strong>İşbirliğine açık mısınız?</strong></p>
-                    <p>Evet, projeleriniz için bana yukarıdaki kanallardan ulaşabilirsiniz.</p>
+                    <p>Evet, projeleriniz için bana yukarıdaki kanallardan veya aşağıdaki iletişim formundan ulaşabilirsiniz.</p>
                 </div>
             </aside>
         </main>
+
+        <div class="contact-container">
+            <h2>Detaylı İletişim Formu</h2>
+            <form action="#" method="POST">
+                
+                <label for="fullname">Ad Soyad:</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Örn: Muhammed Kızıldağ" required>
+
+                <label for="email">E-posta Adresi:</label>
+                <input type="email" id="email" name="email" placeholder="ornek@mail.com" required>
+
+                <label for="password">Başvuru Takip Şifresi:</label>
+                <input type="password" id="password" name="password" placeholder="Şifrenizi girin">
+
+                <label>İletişim Tercihi:</label>
+                <div class="checkbox-group">
+                    <label><input type="radio" name="contact_pref" value="email" checked> Bana e-posta ile ulaşın</label>
+                    <label><input type="radio" name="contact_pref" value="phone"> Bana telefonla ulaşın</label>
+                </div>
+
+                <label>İlgi Alanları / Yetenekler:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                    <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                    <label><input type="checkbox" name="skills" value="Algoritma"> Algoritma</label>
+                </div>
+
+                <label for="subject">Konu:</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Lütfen bir konu seçin...</option>
+                    <option value="İş Teklifi">İş Teklifi</option>
+                    <option value="Soru">Soru</option>
+                    <option value="Geri Bildirim">Geri Bildirim</option>
+                    <option value="Diğer">Diğer</option>
+                </select>
+
+                <label for="file">Özgeçmiş (CV) veya Fotoğraf Yükle:</label>
+                <input type="file" id="file" name="file">
+
+                <label for="message">Mesajınız:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Detaylı mesajınızı buraya yazabilirsiniz..." required></textarea>
+
+                <div class="button-group">
+                    <button type="submit" class="submit-btn">Gönder</button>
+                    <button type="reset" class="reset-btn">Temizle</button>
+                </div>
+
+            </form>
+        </div>
 
         <footer>
             <span>&copy; 2026 Web Programlama Dersi </span>

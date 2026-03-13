@@ -107,3 +107,127 @@ footer {
     border-top: 1px solid #eee;
     font-size: 13px;
 }
+
+
+/* Formu kapsayan ana container (Box Model) */
+        .contact-container {
+            width: 80%; /* Yüzdelik genişlik (Responsive) */
+            max-width: 650px; /* Maksimum genişlik sınırı */
+            margin: 40px auto; /* Sayfayı ortalar */
+            padding: 35px; /* Elemanların kenarlara yapışmasını engeller */
+            border: 1px solid #e0e0e0; /* Belirgin kenarlık */
+            border-radius: 8px; /* Hafif köşe yuvarlaması */
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Göze hoş görünmesi için hafif gölge */
+        }
+
+        .contact-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .contact-container label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #444;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Form içindeki input, select ve textarea elemanlarına müdahale */
+        .contact-container input[type="text"],
+        .contact-container input[type="email"],
+        .contact-container input[type="password"],
+        .contact-container select,
+        .contact-container textarea {
+            width: 100%; /* Bulundukları alanı kaplaması için */
+            padding: 12px; /* İçerisine yazı yazıldığında ferah durması için */
+            margin-bottom: 25px; /* Altlarındaki elemanlarla aralarına boşluk */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Padding dahil %100 genişlik için önemli */
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .contact-container input[type="file"] {
+            margin-bottom: 25px;
+            display: block;
+            font-size: 14px;
+        }
+
+        /* Checkbox ve Radio butonları için özel gruplama kutusu */
+        .checkbox-group {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            border: 1px solid #eee;
+        }
+
+        .checkbox-group label {
+            font-weight: normal;
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+
+        /* Gönder ve Temizle butonları için Container */
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Gönder Butonu (Gereksinimlere göre özelleştirildi) */
+        .submit-btn, .reset-btn {
+            flex: 1; /* Butonların yan yana eşit alanı kaplamasını sağlar */
+            padding: 14px 20px; /* Hem sağ-sol hem alt-üst padding büyütüldü */
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            border: none; /* Kenarlık kaldırıldı */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn {
+            background-color: #007bff; /* Arka plan rengi değiştirildi (Mavi) */
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .reset-btn {
+            background-color: #dc3545; /* İkinci buton kırmızı */
+        }
+
+        .reset-btn:hover {
+            background-color: #c82333;
+        }
+        
+        /* Mobilde yan yana yapıları alt alta almak için */
+        @media screen and (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            .left-column, .right-column {
+                width: 100%;
+            }
+            .contact-container {
+                width: 90%;
+            }
+        }
+
+
