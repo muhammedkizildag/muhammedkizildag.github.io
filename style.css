@@ -152,6 +152,10 @@ footer {
             font-size: 14px;
         }
 
+        #message:focus  {
+            background-color: #f8f8f8;
+        }
+
         .contact-container input[type="file"] {
             margin-bottom: 25px;
             display: block;
