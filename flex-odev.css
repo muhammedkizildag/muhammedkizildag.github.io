@@ -1,4 +1,4 @@
- /* Genel Sıfırlama ve Temel Ayarlar */
+/* Genel Sıfırlama */
         * {
             margin: 0;
             padding: 0;
@@ -7,41 +7,70 @@
         }
 
         body {
-            background-color: #f0f2f5;
-            color: #333;
-            overflow: hidden; /* İçeriğin 100vh dışına taşmasını engellemek için */
+            background-color: #f3f4f6;
+            color: #4b5563;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
         }
 
-        /* Sayfa Ana Kapsayıcısı (Wrapper) - Zorunlu Şart: 100vh */
+        /* Sayfa Ana Kapsayıcısı */
         .wrapper {
             display: flex;
-            flex-direction: column; /* Dikey yerleşim ana yapı */
-            height: 100vh;
+            flex-direction: column;
+            width: 100%;
+            max-width: 1000px;
+            gap: 15px;
+        }
+
+        /* Ortak Bölüm Stili (Kart görünümlü paneller) */
+        section, nav, footer {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 15px 25px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Badge (Etiket) Stilleri */
+        .badge-list {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-size: 11px;
+            background: #f1f5f9;
+            padding: 4px 14px;
+            border-radius: 20px;
+            color: #94a3b8;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+        }
+
+        /* 1) Navbar - 10vh (Yaklaşık) */
+        .navbar {
+            min-height: 10vh;
+            justify-content: center;
+        }
+
+        .nav-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             width: 100%;
         }
 
-        /* Ortak Bölüm Stilleri */
-        section, nav, footer {
-            padding: 0 5%;
-            border-bottom: 1px solid #ddd;
-            background-color: #fff;
-        }
-
-        /* 1) Navbar - 10vh */
-        .navbar {
-            height: 10vh;
-            display: flex;
-            justify-content: space-between; /* Solda logo, sağda linkler */
-            align-items: center; /* Dikeyde ortala */
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            z-index: 10;
-        }
-
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #444;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #334155;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
@@ -52,125 +81,101 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #555;
+            color: #64748b;
+            font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #3b82f6;
-        }
-
-        /* 2) Hero Bölümü - 30vh */
+        /* 2) Hero Bölümü - 30vh (Yaklaşık) */
         .hero {
-            height: 30vh;
-            display: flex;
-            flex-direction: row; /* Yatay dizilim */
-            justify-content: space-between;
-            align-items: stretch; /* Görsel kutusu esneyebilsin */
-            gap: 40px;
-            padding-top: 20px;
-            padding-bottom: 20px;
+            min-height: 30vh;
         }
 
-        .hero-content {
+        .hero-main {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 30px;
+            flex: 1;
+        }
+
+        .hero-text {
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
+            gap: 10px;
         }
 
-        .hero-content h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
+        .hero-text h1 { font-size: 1.6rem; color: #1e293b; }
+        .hero-text p { font-size: 1rem; color: #64748b; }
+        
+        .line-placeholder {
+            height: 5px;
+            background: #f1f5f9;
+            width: 85%;
+            border-radius: 3px;
         }
 
-        .hero-content p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            padding: 10px 25px;
-            background-color: #7da0da;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #5a82c1;
-        }
-
-        .hero-image-placeholder {
+        .hero-image {
             flex: 1;
-            background-color: #e5e7eb;
-            border-radius: 12px;
+            background-color: #f8fafc;
+            border-radius: 10px;
+            border: 1px dashed #cbd5e1;
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 2px dashed #ccc;
         }
 
-        /* 3) Kartlar Bölümü - 30vh */
-        .cards-container {
-            height: 30vh;
-            display: flex;
-            flex-direction: column;
-            padding-top: 15px;
-            padding-bottom: 15px;
+        /* 3) Kartlar Bölümü - 30vh (Yaklaşık) */
+        .cards-section {
+            min-height: 30vh;
         }
 
-        .cards-header {
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .cards-list {
             display: flex;
-            flex-wrap: wrap; /* Sığmazsa alt satıra geçsin */
+            flex-direction: row;
+            flex-wrap: wrap;
             gap: 15px;
             flex: 1;
-            overflow-y: auto; /* Çok fazla kart olursa kaydırılabilir olsun */
         }
 
         .card {
-            flex: 1 1 calc(16.66% - 15px); /* 6 kart yan yana (min-width mantığıyla) */
-            min-width: 150px;
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 10px;
+            flex: 1 1 200px; /* Minimum 200px genişlik, sığmazsa wrap yapar */
+            background: #fff;
+            border: 1px solid #f1f5f9;
+            border-radius: 10px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: space-between;
             text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        .card h4 { font-size: 0.9rem; margin-bottom: 5px; }
-        .card p { font-size: 0.8rem; color: #777; margin-bottom: 10px; }
-        .card .btn-small { padding: 5px; font-size: 0.75rem; }
+        .card h4 { font-size: 0.95rem; margin-bottom: 5px; }
+        .card p { font-size: 0.8rem; color: #94a3b8; margin-bottom: 10px; }
 
-        /* 4) Flex Grow Uygulama - 20vh */
-        .flex-grow-section {
-            height: 20vh;
-            display: flex;
-            flex-direction: column;
-            padding-top: 10px;
-            padding-bottom: 10px;
+        /* 4 & 5) Flex Grow Uygulamaları - 20vh (Yaklaşık) */
+        .grow-section {
+            min-height: 20vh;
         }
 
-        .grow-boxes {
+        .grow-container {
             display: flex;
-            flex-direction: row;
-            gap: 20px;
+            gap: 15px;
             flex: 1;
-            align-items: stretch; /* Kutular yüksekliğe esnesin */
+            align-items: stretch;
+            margin: 10px 0;
         }
 
         .box {
@@ -178,41 +183,47 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-radius: 10px;
-            color: #333;
-            font-weight: bold;
-            padding: 10px;
-        }
-
-        /* Flex Grow değerleri (1-2-1) */
-        .box-1 { flex-grow: 1; background-color: #dbeafe; border: 1px solid #bfdbfe; }
-        .box-2 { flex-grow: 2; background-color: #dcfce7; border: 1px solid #bbf7d0; }
-        .box-3 { flex-grow: 1; background-color: #ffedd5; border: 1px solid #fed7aa; }
-
-        /* 5) Footer - 10vh */
-        .footer {
-            height: 10vh;
-            display: flex;
-            justify-content: center; /* Yatayda ortala */
-            align-items: center; /* Dikeyde ortala */
-            background-color: #f8fafc;
-            color: #94a3b8;
+            border-radius: 8px;
+            padding: 15px;
             font-size: 0.9rem;
-            border-bottom: none;
+            gap: 8px;
         }
 
-        /* Badge/Etiket Stilleri (Görseldeki bilgilendirme kutucukları) */
-        .badge {
-            font-size: 0.7rem;
-            background: #eee;
-            padding: 2px 8px;
-            border-radius: 10px;
-            color: #888;
-            font-weight: normal;
+        .box-1 { flex-grow: 1; background-color: #eff6ff; border: 1px solid #dbeafe; }
+        .box-2 { flex-grow: 2; background-color: #f0fdf4; border: 1px solid #dcfce7; }
+        .box-3 { flex-grow: 1; background-color: #fff7ed; border: 1px solid #ffedd5; }
+
+        /* Buton Stilleri */
+        .btn {
+            background-color: #7da0da;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn-green { background-color: #82bd82; }
+        .btn-orange { background-color: #edae79; }
+
+        /* 6) Footer - 10vh (Yaklaşık) */
+        .footer {
+            min-height: 8vh;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #94a3b8;
         }
 
-        /* Responsive ayarlar: Mobilde hero kolonlarını alt alta al */
+        /* SVG Placeholder İkon */
+        .img-icon { fill: #e2e8f0; width: 60px; height: 60px; }
+
+        /* Responsive Düzenleme */
         @media (max-width: 768px) {
-            .hero { flex-direction: column; height: auto; min-height: 30vh; }
-            .card { flex: 1 1 calc(50% - 15px); }
+            .hero-main { flex-direction: column; }
+            .cards-list { justify-content: center; }
+            body { overflow: auto; height: auto; }
         }
