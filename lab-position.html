@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teknoloji Topluluğu Etkinliği</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #e8e8ec;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── FIXED: Ana Sayfaya Dön button (top-left) ── */
+    .fixed-back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #5c5ce0;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      z-index: 999;
+    }
+
+    .fixed-back-btn:hover {
+      background-color: #4848c8;
+      transform: scale(1.04);
+      cursor: pointer;
+    }
+
+    /* ── FIXED: Yardımcı Menü button (bottom-right) ── */
+    .fixed-helper-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background-color: #6c4de8;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 12px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      z-index: 999;
+      box-shadow: 0 4px 16px rgba(108, 77, 232, 0.4);
+    }
+
+    .fixed-helper-btn:hover {
+      background-color: #5a3cd6;
+      box-shadow: 0 6px 22px rgba(108, 77, 232, 0.55);
+      transform: translateY(-2px);
+      cursor: pointer;
+    }
+
+    /* ── MAIN WRAPPER ── */
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 80px 20px 60px;
+    }
+
+    /* ── CARD CONTAINER (position: relative) ── */
+    .card-container {
+      position: relative;
+      width: 620px;
+      min-height: 480px;
+      background: linear-gradient(135deg, #dce1f8 0%, #e8d6f7 40%, #d6dff7 100%);
+      border-radius: 20px;
+      padding: 40px 36px 48px;
+      box-shadow: 0 8px 40px rgba(100, 100, 180, 0.18);
+      overflow: visible;
+    }
+
+    /* ── ABSOLUTE: Ücretsiz badge (top-left) ── */
+    .badge-free {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background-color: #f5f0c8;
+      color: #6b6020;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      z-index: 10;
+      cursor: default;
+      transition: background-color 0.2s ease;
+    }
+
+    .badge-free:hover {
+      background-color: #ede89c;
+      cursor: default;
+    }
+
+    /* ── ABSOLUTE: Date badge (top-right) ── */
+    .badge-date {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background-color: #d4f5d8;
+      color: #2a6b35;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      z-index: 10;
+      cursor: default;
+      transition: background-color 0.2s ease;
+    }
+
+    .badge-date:hover {
+      background-color: #aaefb0;
+      cursor: default;
+    }
+
+    /* ── ABSOLUTE: Decorative circle (background) ── */
+    .deco-circle {
+      position: absolute;
+      bottom: 60px;
+      right: 30px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(200, 185, 245, 0.45);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Card heading ── */
+    .card-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-top: 28px;
+      margin-bottom: 16px;
+      line-height: 1.3;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── Card description ── */
+    .card-desc {
+      font-size: 13.5px;
+      color: #3a3a5c;
+      line-height: 1.65;
+      max-width: 280px;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ── ABSOLUTE: Location tag (center-right area) ── */
+    .location-tag {
+      position: absolute;
+      bottom: 96px;
+      right: 28px;
+      background-color: #ffffff;
+      color: #3a3a5c;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 10;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .location-tag:hover {
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
+      cursor: pointer;
+    }
+
+    /* ── ABSOLUTE: Son Kayıt button ── */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      30% {
+        transform: translateY(-12px);
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      }
+      60% {
+        transform: translateY(-6px);
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      }
+      75% {
+        transform: translateY(0px);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      90% {
+        transform: translateY(-3px);
+      }
+    }
+
+    .btn-son-kayit {
+      position: absolute;
+      bottom: 30px;
+      right: 28px;
+      background-color: #f5c8cc;
+      color: #7a2030;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      z-index: 10;
+      cursor: pointer;
+      animation: bounce 2s ease infinite;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-son-kayit:hover {
+      background-color: #f0aab0;
+      cursor: pointer;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #8888aa;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED: Ana Sayfaya Dön -->
+  <a href="index.html" class="fixed-back-btn">Ana Sayfaya Dön</a>
+
+  <!-- FIXED: Yardımcı Menü -->
+  <div class="fixed-helper-btn">Yardımcı Menü</div>
+
+  <!-- Page wrapper -->
+  <div class="page-wrapper">
+
+    <!-- CARD (position: relative) -->
+    <div class="card-container">
+
+      <!-- ABSOLUTE: Ücretsiz badge -->
+      <span class="badge-free">Ücretsiz</span>
+
+      <!-- ABSOLUTE: Date badge -->
+      <span class="badge-date">24 Nisan</span>
+
+      <!-- ABSOLUTE: Decorative circle (z-index 0, behind text) -->
+      <div class="deco-circle"></div>
+
+      <!-- Card content (z-index 2, above circle) -->
+      <h1 class="card-title">Teknoloji Topluluğu Etkinliği</h1>
+      <p class="card-desc">
+        Bu örnek sayfada amaç; CSS position özelliklerini
+        kullanarak tek bir duyuru kartı üzerinde relative, absolute,
+        fixed, z-index, hover, cursor ve animasyon mantığını
+        birlikte göstermektir.
+      </p>
+
+      <!-- ABSOLUTE: Location tag -->
+      <div class="location-tag">Konum: Konferans Salonu</div>
+
+      <!-- ABSOLUTE: Son Kayıt button (bounce animation) -->
+      <div class="btn-son-kayit">Son Kayıt</div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">2025 – LAB Position Örnek Çalışması</div>
+
+  </div>
+
+</body>
+</html>
