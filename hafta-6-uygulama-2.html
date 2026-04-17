@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Birim Dönüştürücü</title>
+<style>
+    :root {
+        --bg1: #f0f9ff;
+        --bg2: #f8fafc;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --primary: #0ea5e9;
+        --primary-hover: #0284c7;
+        --border: #e5e7eb;
+        --result-bg: #ecfeff;
+        --result-border: #bae6fd;
+        --shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+        --radius: 14px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background: linear-gradient(135deg, var(--bg1), var(--bg2));
+        display: grid;
+        place-items: center;
+        padding: 24px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 360px;
+        border: 1px solid rgba(229, 231, 235, 0.8);
+        padding: 22px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        background-color: var(--card);
+    }
+
+    h2 {
+        margin: 0 0 16px;
+        font-size: 1.3rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        font-weight: 600;
+    }
+
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 10px 11px;
+        margin-bottom: 14px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        font-size: 0.95rem;
+        outline: none;
+        background: #fff;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="number"]:focus,
+    select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.18);
+    }
+
+    button {
+        width: 100%;
+        padding: 11px 12px;
+        background: linear-gradient(135deg, var(--primary), #38bdf8);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        margin-bottom: 14px;
+        font-weight: 700;
+        transition: transform 0.05s ease, filter 0.2s ease;
+    }
+
+    button:hover {
+        filter: brightness(1.03);
+        background: linear-gradient(135deg, var(--primary-hover), #0ea5e9);
+    }
+
+    button:active {
+        transform: translateY(1px);
+    }
+
+    .result {
+        background-color: var(--result-bg);
+        border: 1px solid var(--result-border);
+        color: #0f172a;
+        padding: 12px;
+        text-align: center;
+        border-radius: 10px;
+        display: none;
+        font-size: 1rem;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Birim Dönüştürücü</h2>
+    
+    <label for="deger">Değer Giriniz:</label>
+    <input type="number" id="deger" value="50" />
+
+    <label for="tip">Dönüşüm Tipi:</label>
+    <select id="tip">
+        <option value="c_to_f">Celsius -> Fahrenheit</option>
+        <option value="m_to_km">Metre -> Kilometre</option>
+        <option value="kg_to_g">Kilogram -> Gram</option>
+    </select>
+
+    <button onclick="donustur()">Hesapla</button>
+
+    <div class="result" id="sonucAlani">
+        <strong>Sonuç: <span id="sonuc"></span></strong>
+    </div>
+</div>
+
+<script>
+    function donustur() {
+        const deger = parseFloat(document.getElementById('deger').value);
+        const tip = document.getElementById('tip').value;
+
+        if (isNaN(deger)) {
+            alert("Lütfen dönüştürmek için bir değer girin.");
+            return;
+        }
+
+        let sonuc = 0;
+        
+        switch(tip) {
+            case 'c_to_f':
+                sonuc = (deger * 9/5) + 32;
+                break;
+            case 'm_to_km':
+                sonuc = deger / 1000;
+                break;
+            case 'kg_to_g':
+                sonuc = deger * 1000;
+                break;
+        }
+
+        // Görseldeki formata uygun olarak tam sayı çıkarsa düz, binlik çıkarsa ayracıyla göstermek için
+        document.getElementById('sonuc').innerText = sonuc.toLocaleString('tr-TR');
+        document.getElementById('sonucAlani').style.display = "block";
+    }
+</script>
+</body>
+</html>

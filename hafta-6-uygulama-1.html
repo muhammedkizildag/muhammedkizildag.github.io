@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Öğrenci Not Hesaplama</title>
+<style>
+    :root {
+        --bg1: #eef2ff;
+        --bg2: #f8fafc;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --primary: #4f46e5;
+        --primary-hover: #4338ca;
+        --border: #e5e7eb;
+        --success-bg: #ecfdf5;
+        --success-text: #065f46;
+        --danger-bg: #fef2f2;
+        --danger-text: #991b1b;
+        --shadow: 0 10px 30px rgba(31, 41, 55, 0.12);
+        --radius: 14px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background: linear-gradient(135deg, var(--bg1), var(--bg2));
+        display: grid;
+        place-items: center;
+        padding: 24px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 460px;
+        background: var(--card);
+        border: 1px solid rgba(229, 231, 235, 0.75);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 24px;
+    }
+
+    h2 {
+        margin: 0 0 18px;
+        font-size: 1.35rem;
+        letter-spacing: 0.2px;
+    }
+
+    .field {
+        margin-bottom: 12px;
+    }
+
+    .field label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 11px 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        outline: none;
+        font-size: 0.95rem;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        background: #fff;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    }
+
+    button {
+        width: 100%;
+        margin-top: 4px;
+        padding: 11px 14px;
+        border: none;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(135deg, var(--primary), #6366f1);
+        cursor: pointer;
+        transition: transform 0.05s ease, filter 0.2s ease, background 0.2s ease;
+    }
+
+    button:hover {
+        filter: brightness(1.03);
+        background: linear-gradient(135deg, var(--primary-hover), #4f46e5);
+    }
+
+    button:active {
+        transform: translateY(1px);
+    }
+
+    .result {
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: #f8fafc;
+        display: none;
+    }
+
+    .result h3 {
+        margin: 0 0 10px;
+        font-size: 1.05rem;
+        font-weight: 700;
+    }
+
+    .result p {
+        margin: 4px 0;
+        font-size: 0.95rem;
+        color: #334155;
+    }
+
+    .result.pass {
+        background: var(--success-bg);
+        border-color: #bbf7d0;
+    }
+
+    .result.pass #sonucDurum {
+        color: var(--success-text);
+        font-weight: 700;
+    }
+
+    .result.fail {
+        background: var(--danger-bg);
+        border-color: #fecaca;
+    }
+
+    .result.fail #sonucDurum {
+        color: var(--danger-text);
+        font-weight: 700;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Öğrenci Not Hesaplama</h2>
+
+    <div class="field">
+        <label for="adSoyad">Ad Soyad</label>
+        <input type="text" id="adSoyad" placeholder="Örn: Ahmet Yılmaz" />
+    </div>
+
+    <div class="field">
+        <label for="vize">Vize Notu</label>
+        <input type="number" id="vize" placeholder="0 - 100" />
+    </div>
+
+    <div class="field">
+        <label for="final">Final Notu</label>
+        <input type="number" id="final" placeholder="0 - 100" />
+    </div>
+
+    <button onclick="hesapla()">Hesapla</button>
+
+    <div class="result" id="sonucAlani">
+        <h3 id="sonucAd"></h3>
+        <p id="sonucOrtalama"></p>
+        <p id="sonucHarf"></p>
+        <p id="sonucDurum"></p>
+    </div>
+</div>
+
+<script>
+    function hesapla() {
+        const ad = document.getElementById('adSoyad').value;
+        const vize = parseFloat(document.getElementById('vize').value);
+        const final = parseFloat(document.getElementById('final').value);
+
+        if (!ad || isNaN(vize) || isNaN(final)) {
+            alert("Lütfen tüm alanları eksiksiz doldurun.");
+            return;
+        }
+
+        // Vize %40, Final %60
+        const ortalama = (vize * 0.4) + (final * 0.6);
+        const durum = ortalama >= 50 ? "Geçti" : "Kaldı";
+        let harfNotu = "";
+
+        // Görseldeki "60 = CB" baz alınarak oluşturulmuş standart harf notu skalası
+        if (ortalama >= 90) harfNotu = "AA";
+        else if (ortalama >= 80) harfNotu = "BA";
+        else if (ortalama >= 70) harfNotu = "BB";
+        else if (ortalama >= 60) harfNotu = "CB";
+        else if (ortalama >= 50) harfNotu = "CC";
+        else if (ortalama >= 40) harfNotu = "DC";
+        else if (ortalama >= 30) harfNotu = "DD";
+        else harfNotu = "FF";
+
+        document.getElementById('sonucAd').innerText = ad;
+        document.getElementById('sonucOrtalama').innerText = "Ortalama: " + ortalama.toFixed(2);
+        document.getElementById('sonucHarf').innerText = "Harf Notu: " + harfNotu;
+        document.getElementById('sonucDurum').innerText = "Durum: " + durum;
+
+        const sonucAlani = document.getElementById('sonucAlani');
+        sonucAlani.classList.remove('pass', 'fail');
+        sonucAlani.classList.add(durum === "Geçti" ? 'pass' : 'fail');
+        sonucAlani.style.display = "block";
+    }
+</script>
+</body>
+</html>
